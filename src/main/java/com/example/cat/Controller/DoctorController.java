@@ -22,14 +22,14 @@ public class DoctorController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity addDoctor(@Valid @RequestBody Doctor doctor, Errors errors) {
+    public ResponseEntity addDoctor(@Valid @RequestBody Doctor doctor) {
 
         doctorService.addDoctor(doctor);
         return ResponseEntity.status(HttpStatus.OK).body("Doctor added successfully");
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity updateDoctor(@PathVariable Integer id, @Valid @RequestBody Doctor doctor, Errors errors) {
+    public ResponseEntity updateDoctor(@PathVariable Integer id, @Valid @RequestBody Doctor doctor) {
 
         doctorService.updateDoctor(id, doctor);
         return ResponseEntity.status(HttpStatus.OK).body("Doctor updated successfully");

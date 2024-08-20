@@ -22,14 +22,14 @@ public class ReviewController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity addReview(@Valid @RequestBody Review review, Errors errors) {
+    public ResponseEntity addReview(@Valid @RequestBody Review review) {
 
         reviewService.addReview(review);
         return ResponseEntity.status(HttpStatus.OK).body("Review added successfully");
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity updateReview(@PathVariable Integer id, @Valid @RequestBody Review review, Errors errors) {
+    public ResponseEntity updateReview(@PathVariable Integer id, @Valid @RequestBody Review review) {
 
         reviewService.updateReview(id, review);
         return ResponseEntity.status(HttpStatus.OK).body("Review updated successfully");

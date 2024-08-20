@@ -22,14 +22,14 @@ public class FosterController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity addFoster(@Valid @RequestBody Foster foster, Errors errors) {
+    public ResponseEntity addFoster(@Valid @RequestBody Foster foster) {
 
         fosterService.addFoster(foster);
         return ResponseEntity.status(HttpStatus.CREATED).body("Foster added successfully");
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity updateFoster(@PathVariable Integer id, @Valid @RequestBody Foster foster, Errors errors) {
+    public ResponseEntity updateFoster(@PathVariable Integer id, @Valid @RequestBody Foster foster) {
 
         fosterService.updateFoster(id, foster);
         return ResponseEntity.status(HttpStatus.OK).body("Foster updated successfully");

@@ -34,7 +34,7 @@ public class HealthRecordController {
 
     // Endpoint to update an existing health record
     @PutMapping("/update/{id}")
-    public ResponseEntity updateHealthRecord(@PathVariable Integer id, @Valid @RequestBody HealthRecord healthRecord, Errors errors) {
+    public ResponseEntity updateHealthRecord(@PathVariable Integer id, @Valid @RequestBody HealthRecord healthRecord) {
 
         healthRecordService.updateHealthRecord(id, healthRecord);
         return ResponseEntity.status(HttpStatus.OK).body("Health record updated successfully");

@@ -22,14 +22,14 @@ public class AdoptionRequestController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity addAdoptionRequest(@Valid @RequestBody AdoptionRequest adoptionRequest, Errors errors) {
+    public ResponseEntity addAdoptionRequest(@Valid @RequestBody AdoptionRequest adoptionRequest) {
 
         adoptionRequestService.addAdoptionRequest(adoptionRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body("Adoption request added successfully");
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity updateAdoptionRequest(@PathVariable Integer id, @Valid @RequestBody AdoptionRequest adoptionRequest, Errors errors) {
+    public ResponseEntity updateAdoptionRequest(@PathVariable Integer id, @Valid @RequestBody AdoptionRequest adoptionRequest) {
 
         adoptionRequestService.updateAdoptionRequest(id, adoptionRequest);
         return ResponseEntity.status(HttpStatus.OK).body("Adoption request updated successfully");

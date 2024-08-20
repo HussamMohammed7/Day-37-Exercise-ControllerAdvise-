@@ -24,14 +24,14 @@ public class AdopterController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity addAdopter(@Valid @RequestBody Adopter adopter, Errors errors) {
+    public ResponseEntity addAdopter(@Valid @RequestBody Adopter adopter) {
 
         adopterService.addAdopter(adopter);
         return ResponseEntity.status(HttpStatus.CREATED).body("Adopter added successfully");
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity updateAdopter(@PathVariable Integer id, @Valid @RequestBody Adopter adopter, Errors errors) {
+    public ResponseEntity updateAdopter(@PathVariable Integer id, @Valid @RequestBody Adopter adopter) {
 
         adopterService.updateAdopter(id, adopter);
         return ResponseEntity.status(HttpStatus.OK).body("Adopter updated successfully");

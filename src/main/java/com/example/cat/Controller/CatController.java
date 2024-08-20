@@ -22,14 +22,14 @@ public class CatController {
     }
 
     @PostMapping("/add")
-    public ResponseEntity addCat(@Valid @RequestBody Cat cat, Errors errors) {
+    public ResponseEntity addCat(@Valid @RequestBody Cat cat) {
 
         catService.addCat(cat);
         return ResponseEntity.status(HttpStatus.OK).body("Cat added successfully");
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity updateCat(@PathVariable Integer id, @Valid @RequestBody Cat cat, Errors errors) {
+    public ResponseEntity updateCat(@PathVariable Integer id, @Valid @RequestBody Cat cat) {
 
         catService.updateCat(id, cat);
         return ResponseEntity.status(HttpStatus.OK).body("Cat updated successfully");
